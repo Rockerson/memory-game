@@ -1,8 +1,3 @@
-var grupoComidasRapidas = ["🌭","🍔","🍕","🍟","🌮","🌯","🫓","🥪","🥙"];
-var grupoFrutas = ["🍎","🍐","🍓","🍇","🍉","🍌","🍊","🍒","🥥"];
-var grupoCompleto = grupoComidasRapidas.concat(grupoFrutas);
-var totalTarjetas = grupoCompleto.concat(grupoCompleto);
-
 function Barajar(){
     var resultado;
     
@@ -12,7 +7,6 @@ function Barajar(){
 
     return resultado;
 }
-
 
 function Repartir(){
     var tarjetasBarajadas = Barajar();
@@ -52,12 +46,11 @@ function Descubrir(){
 }
 
 function Comparar(tarjetasAComparar){
-        if(tarjetasAComparar[0].dataset.valor === tarjetasAComparar[1].dataset.valor){
-            Acierto(tarjetasAComparar);
-        }else{
-            Error(tarjetasAComparar);
-        }
-
+    if(tarjetasAComparar[0].dataset.valor === tarjetasAComparar[1].dataset.valor){
+        Acierto(tarjetasAComparar);
+    }else{
+        Error(tarjetasAComparar);
+    }
 }
 
 function Acierto(lasTarjetas){
@@ -68,12 +61,13 @@ function Acierto(lasTarjetas){
 
 function Error(lasTarjetas){
     lasTarjetas.forEach(function(elemento){
-        elemento.classList.remove("descubierta");
+        elemento.classList.add("error");
     });
+
+    setTimeout(function(){
+        lasTarjetas.forEach(function(elemento){
+            elemento.classList.remove("descubierta");
+            elemento.classList.remove("error");
+        });
+    }, 1000);
 }
-
-Repartir();
-
-document.querySelectorAll(".tarjeta").forEach(function(elemento){
-    elemento.addEventListener("click", Descubrir);
-});
