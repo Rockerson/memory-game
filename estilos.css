@@ -28,8 +28,10 @@ header, footer{
 }
 
 main{
+    padding: 1em;
     font-family:'Quicksand', sans-serif;
     font-weight: 700;
+    text-align: center;
     flex-grow: 1;
 }
 
