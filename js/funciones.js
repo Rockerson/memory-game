@@ -43,6 +43,7 @@ function Descubrir(){
     }
 
     Comparar(descubiertas);
+    ActualizarContador();
 }
 
 function Comparar(tarjetasAComparar){

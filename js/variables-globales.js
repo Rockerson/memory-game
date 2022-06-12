@@ -1,3 +1,4 @@
+var intentos = 0;
 var grupoComidasRapidas = ["🌭","🍔","🍕","🍟","🌮","🌯","🫓","🥪","🥙"];
 var grupoFrutas = ["🍎","🍐","🍓","🍇","🍉","🍌","🍊","🍒","🥥"];
 var grupoCompleto = grupoComidasRapidas.concat(grupoFrutas);
