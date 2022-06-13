@@ -29,6 +29,7 @@ function Repartir(){
 
 function Descubrir(){
     var totalDescubiertas = document.querySelectorAll(".descubierta:not(.acertada)");
+    var tarjetasRestantes;
 
     if(totalDescubiertas.length > 1){
         return;
@@ -44,6 +45,11 @@ function Descubrir(){
 
     Comparar(descubiertas);
     ActualizarContador();
+    tarjetasRestantes = document.querySelectorAll(".tarjeta:not(.acertada)");
+
+    if(tarjetasRestantes.length === 0){
+        setTimeout(Finalizar, 1000);
+    }
 }
 
 function Comparar(tarjetasAComparar){
