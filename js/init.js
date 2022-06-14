@@ -1,6 +1,7 @@
 function Iniciar(){
     intentos = 0;
     Repartir();
+    IniciarCronometro();
     
     document.querySelector("#cont").innerText = "00";
     document.querySelector(".popup").classList.remove("visible");
@@ -8,8 +9,6 @@ function Iniciar(){
     document.querySelectorAll(".tarjeta").forEach(function(elemento){
     elemento.addEventListener("click", Descubrir);
     });
-
-    //IniciarCronometro();
 }
 
 function Finalizar(){

@@ -18,7 +18,7 @@ function Repartir(){
 
         tarjeta.innerHTML = 
             '<div class="tarjeta" data-valor=' + elemento + ' >' + 
-                '<div class="tarjeta__contenido">' + 
+                '<div class="contenido">' + 
                     elemento + 
                 '</div>' +    
             '</div>';
@@ -38,15 +38,14 @@ function Descubrir(){
     this.classList.add("descubierta");
 
     var descubiertas = document.querySelectorAll(".descubierta:not(.acertada)");
-
     if(descubiertas.length < 2){
         return;
     }
 
     Comparar(descubiertas);
     ActualizarContador();
-    tarjetasRestantes = document.querySelectorAll(".tarjeta:not(.acertada)");
 
+    tarjetasRestantes = document.querySelectorAll(".tarjeta:not(.acertada)");
     if(tarjetasRestantes.length === 0){
         setTimeout(Finalizar, 1000);
     }
@@ -56,7 +55,7 @@ function Comparar(tarjetasAComparar){
     if(tarjetasAComparar[0].dataset.valor === tarjetasAComparar[1].dataset.valor){
         Acierto(tarjetasAComparar);
     }else{
-        Error(tarjetasAComparar);
+        DesAcierto(tarjetasAComparar);
     }
 }
 
@@ -66,7 +65,7 @@ function Acierto(lasTarjetas){
     });
 }
 
-function Error(lasTarjetas){
+function DesAcierto(lasTarjetas){
     lasTarjetas.forEach(function(elemento){
         elemento.classList.add("error");
     });
