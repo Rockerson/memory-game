@@ -63,6 +63,9 @@ function Acierto(lasTarjetas){
     lasTarjetas.forEach(function(elemento){
         elemento.classList.add("acertada");
     });
+
+    aciertos++;
+    console.log("Aciertos: " + aciertos);
 }
 
 function DesAcierto(lasTarjetas){
@@ -76,4 +79,7 @@ function DesAcierto(lasTarjetas){
             elemento.classList.remove("error");
         });
     }, 1000);
+
+    errores++;
+    console.log("Errores: " + errores);
 }
