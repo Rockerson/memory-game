@@ -1,5 +1,7 @@
 function Iniciar(){
     intentos = 0;
+    aciertos = 0;
+    errores = 0;
     Repartir();
     IniciarCronometro();
     
