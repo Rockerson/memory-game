@@ -24,7 +24,7 @@ function Repartir(){
             '</div>';
 
         mesa.appendChild(tarjeta);
-    })
+    });
 }
 
 function Descubrir(){
