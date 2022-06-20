@@ -13,9 +13,30 @@ function Iniciar(){
     });
 }
 
+function IniciarModoReto(){
+    document.querySelector("#bienvenida").classList.remove(".visible");
+    Iniciar();
+}
+
+function IniciarModoLibre(){
+    document.querySelector("#bienvenida").classList.remove(".visible");
+    Iniciar();
+}
+
+function JuegoTerminado(){
+    //por crear
+}
+
+function TiempoTerminado(){
+    //por crear
+}
+
+function CargaLobby(){
+    document.querySelector("#bienvenida").classList.add("visible");
+}
+
 function Finalizar(){
     document.querySelector(".popup").classList.add("visible");
 }
 
-Iniciar();
-
+CargaLobby();
