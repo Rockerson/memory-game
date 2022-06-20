@@ -37,6 +37,8 @@ function Descubrir(){
 
     this.classList.add("descubierta");
 
+    document.querySelector("#sonido-carta").play();
+
     var descubiertas = document.querySelectorAll(".descubierta:not(.acertada)");
     if(descubiertas.length < 2){
         return;
@@ -66,12 +68,16 @@ function Acierto(lasTarjetas){
 
     aciertos++;
     console.log("Aciertos: " + aciertos);
+
+    document.querySelector("#sonido-acierto").play();
 }
 
 function DesAcierto(lasTarjetas){
     lasTarjetas.forEach(function(elemento){
         elemento.classList.add("error");
     });
+
+    document.querySelector("#sonido-error").play();
 
     setTimeout(function(){
         lasTarjetas.forEach(function(elemento){
