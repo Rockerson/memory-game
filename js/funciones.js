@@ -72,7 +72,7 @@ function Acierto(lasTarjetas){
     }
     document.querySelector("#aciertos").innerText = aciertos;
 
-    document.querySelector("#sonido-acierto").play();
+    document.querySelector("#sonido-acierto").cloneNode().play();
 }
 
 function DesAcierto(lasTarjetas){

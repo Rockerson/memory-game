@@ -36,7 +36,7 @@ function CargaLobby(){
 }
 
 function Finalizar(){
-    document.querySelector(".popup").classList.add("visible");
+    document.querySelector("#gana").classList.add("visible");
 }
 
 CargaLobby();

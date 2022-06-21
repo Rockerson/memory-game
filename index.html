@@ -37,17 +37,24 @@
         </section>
         <div id="bienvenida" class="popup">
             <div class="contenedor">
-                <h2>🖖🏻Hola🖖🏻</h2>
+                <h2>🖖🏻 Hola 🖖🏻</h2>
                 <p>Selecciona el modo que deseas jugar</p>
             <button id="modo-reto" class="btn" onclick="IniciarModoReto()">Modo Reto</button>
             <button id="modo-libre" class="btn" onclick="IniciarModoLibre()">Modo Libre</button>
             </div>
         </div>
-        <div class="popup">
+        <div id="pierde" class="popup">
             <div class="contenedor"> 
-                <h2>Fin de juego</h2>
-                <p>El juego ha terminado</p>
-                <button id="reiniciar" class="btn">Reiniciar</button>
+                <h2>Perdiste</h2>
+                <p>Te has quedados sin movimientos</p>
+                <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button>
+            </div>
+        </div>
+        <div id="gana" class="popup">
+            <div class="contenedor"> 
+                <h2>Ganaste</h2>
+                <p>Has superado el juego</p>
+                <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button>
             </div>
         </div>
         <p>Aciertos : <span id="aciertos">00</span> Errores : <span id="errores">00</span></p>
