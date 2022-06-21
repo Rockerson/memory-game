@@ -67,7 +67,10 @@ function Acierto(lasTarjetas){
     });
 
     aciertos++;
-    console.log("Aciertos: " + aciertos);
+    if(aciertos<10){
+        aciertos = "0" + aciertos;
+    }
+    document.querySelector("#aciertos").innerText = aciertos;
 
     document.querySelector("#sonido-acierto").play();
 }
@@ -87,5 +90,8 @@ function DesAcierto(lasTarjetas){
     }, 1000);
 
     errores++;
-    console.log("Errores: " + errores);
+    if(errores<10){
+        errores = "0" + errores;
+    }
+    document.querySelector("#errores").innerText = errores;
 }
