@@ -3,7 +3,7 @@ function IniciarCronometro(){
     var segundos = 0;
     var segTexto;
 
-    var minutos = 3;
+    var minutos = 2;
     var minTexto;
 
     var cronometro;
@@ -21,6 +21,7 @@ function IniciarCronometro(){
             segundos = 0;
             minutos = 0;
             clearInterval(cronometro);
+            JuegoTerminado();
         }
         
         segTexto = segundos;
