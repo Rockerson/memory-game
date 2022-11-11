@@ -28,17 +28,18 @@ add_action('admin_menu', 'MakeMenu');
 
 function MakeMenu(){
     add_menu_page(
-        'Memory Game',
-        'WP Memory Game',
-        'manage_options',
-        'mg_menu',
-        'ShowMenuPage',
-        'dashicons-games'
+        'Memory Game', //page title
+        'WP Memory Game', //menu title
+        'manage_options', // capability
+        plugin_dir_path(__FILE__).'admin/settings.php', //slug
+        null, //content function
+        'dashicons-games', // icon
+        '1' //priority
     );
 }
 
-function ShowMenuPage(){
-    echo "<h1>Memory Game Settings</h1>";
-}
+add_shortcode("memory", function (){
+    //echo plugin_dir_url(__FILE__).'index.html';
+});
 
 ?>
