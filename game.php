@@ -1,3 +1,7 @@
+<?php
+
+add_shortcode("memory", function ($atts, $content){
+    $output = '
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -72,4 +76,6 @@
     <script src="js/contador.js"></script>
     <script src="js/init.js"></script>
 </body>
-</html>
+</html>';
+    return $output;
+});

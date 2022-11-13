@@ -38,8 +38,6 @@ function MakeMenu(){
     );
 }
 
-add_shortcode("memory", function (){
-    //echo plugin_dir_url(__FILE__).'index.html';
-});
+require_once dirname(__FILE__) . '/game.php';
 
 ?>
