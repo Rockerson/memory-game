@@ -28,16 +28,22 @@ add_action('admin_menu', 'MakeMenu');
 
 function MakeMenu(){
     add_menu_page(
-        'Memory Game', //page title
-        'WP Memory Game', //menu title
-        'manage_options', // capability
+        'Memory Game',                                  //page title
+        'WP Memory Game',                               //menu title
+        'manage_options',                               // capability
         plugin_dir_path(__FILE__).'admin/settings.php', //slug
-        null, //content function
-        'dashicons-games', // icon
-        '1' //priority
+        null,                                           //content function
+        'dashicons-games',                              // icon
+        '1'                                             //priority
     );
 }
 
 require_once dirname(__FILE__) . '/game.php';
+
+function MinigameStyles(){
+    wp_enqueue_script('minigame-styles',plugins_url('css/estilos.css',__FILE__));
+}
+
+add_action('wp_enqueue_scripts', 'MinigameStyles');
 
 ?>
