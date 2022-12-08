@@ -1,32 +1,36 @@
 <?php 
 /**
- * Plugin Name: WP Memory Game
+ * Plugin Name: WP Memory Game by Rockerson
  * Plugin URI: https://github.com/Rockerson/memory-game
- * Description: A minigame integrate with WordPress
- * Version: 0.0.1
+ * Description: A minigame integrated with WordPress
+ * Version: 0.1.1
  * Author: Rockerson
  * Author URI: https://rockerson.github.io/
+ * Text Domain: wp-memory-game-by-rockerson
+ * Domain Path:/languages
  */
 
-function mg_Activation(){
+ //Prefix - > wpmg "word press memory game"
+
+function wpmg_Activation(){
     
 }
 
-function mg_Deactivation(){
+function wpmg_Deactivation(){
 
 }
 
-function mg_Uninstall(){
+function wpmg_Uninstall(){
 
 }
 
-register_activation_hook(__FILE__, 'mg_Activation');
-register_deactivation_hook(__FILE__, 'mg_Deactivation');
-register_uninstall_hook(__FILE__, 'mg_Unistall');
+register_activation_hook(__FILE__, 'wpmg_Activation');
+register_deactivation_hook(__FILE__, 'wpmg_Deactivation');
+register_uninstall_hook(__FILE__, 'wpmg_Unistall');
 
-add_action('admin_menu', 'MakeMenu');
+add_action('admin_menu', 'wpmg_MakeMenu');
 
-function MakeMenu(){
+function wpmg_MakeMenu(){
     add_menu_page(
         'Memory Game',                                  //page title
         'WP Memory Game',                               //menu title
@@ -40,10 +44,10 @@ function MakeMenu(){
 
 require_once dirname(__FILE__) . '/game.php';
 
-function MinigameStyles(){
-    wp_enqueue_script('minigame-styles',plugins_url('css/estilos.css',__FILE__));
+function wpmg_MinigameStyles(){
+    wp_enqueue_script('wpmg_styles',plugins_url('css/estilos.css',__FILE__));
 }
 
-add_action('wp_enqueue_scripts', 'MinigameStyles');
+add_action('wp_enqueue_scripts', 'wpmg_MinigameStyles');
 
 ?>
