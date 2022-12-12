@@ -8,7 +8,6 @@ function Iniciar(){
     Repartir();
     
     document.querySelector("#intentos").innerText = "00";
-    document.querySelector(".popup").classList.remove("visible");
     document.querySelector("#gana").classList.remove("visible");
     document.querySelector("#pierde").classList.remove("visible");
 
@@ -42,7 +41,5 @@ function Finalizar(){
 function CargaLobby(){
     document.querySelector("#bienvenida").classList.add("visible");
 }
-
-
 
 CargaLobby();

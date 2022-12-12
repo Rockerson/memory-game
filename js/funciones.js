@@ -71,7 +71,6 @@ function Acierto(lasTarjetas){
         aciertos = "0" + aciertos;
     }
     document.querySelector("#aciertos").innerText = aciertos;
-
     document.querySelector("#sonido-acierto").cloneNode().play();
 }
 

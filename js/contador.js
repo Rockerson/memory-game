@@ -14,7 +14,6 @@ function ActualizarContador(){
     }
 
     document.querySelector("#intentos").innerText = intText;
-
 }
 
 function IntentosMax(){
