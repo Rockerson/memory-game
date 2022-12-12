@@ -65,6 +65,13 @@ a{
     color: var(--color-secundario);
 }
 
+li{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+
+}
+
 /* ESTILOS DE GAMEPLAY */
 
 #mesa{
