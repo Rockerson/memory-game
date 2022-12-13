@@ -23,14 +23,10 @@ if(isset( $_POST['submit-score'])){
     <title>🧩 Memory Game 🧩</title>
     <link rel="stylesheet" href="css/reseteo.css">
     <link rel="stylesheet" href="css/estilos.css">
-
-    <?php if(isset( $_GET['success'])): ?>
-        <script> alert("Se ha guadado con exito su puntaje");</script>
-    <?php endif; ?>
 </head>
 <body>
     <header>
-        <h1>Mc Memory</h1>
+        <h1>McMemory</h1>
         <div class="movimientos">
             <h3>Movimientos</h3>
             <div>
@@ -56,6 +52,9 @@ if(isset( $_POST['submit-score'])){
                 <p>Juega para alcanzar el top 10</p>
             <button id="modo-reto" class="btn" onclick="IniciarModoReto()">Jugar</button>
             <button id="modo-libre" class="btn" onclick="IniciarModoLibre()">Ranking</button>
+            <?php if(isset( $_GET['success'])): ?>
+                <p style="color:white;"> ¡Se ha guadado con exito su puntaje! </p>
+            <?php endif; ?>
             </div>
             <img max-width="300px" src="https://appasionatero22.com/wp-content/uploads/2022/11/ArcosDorados.png" alt="Arcos Dorados">
         </div>
@@ -66,7 +65,7 @@ if(isset( $_POST['submit-score'])){
                 <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button>
             </div>
         </div>
-        <div id="gana" class="popup visible">
+        <div id="gana" class="popup">
             <div class="contenedor"> 
                 <h2>🏆 Ganaste 🏆</h2>
                 <p>Has superado el juego en <strong> x </strong> segundos y con <strong> x </strong> movimientos </p>
@@ -79,7 +78,6 @@ if(isset( $_POST['submit-score'])){
 
                     <input id="score_time" name="score_time" type="hidden" value="123"/>
                     <input id="movements" name="movements" type="hidden" value="321"/>
-
                     <input type="submit" name="submit-score" value="Enviar" class="btn">
                 </form>
                 <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button>
@@ -99,6 +97,7 @@ if(isset( $_POST['submit-score'])){
                     <li> <span><?php echo $cont ?></span> <span><?php echo $u['nickname'] ?></span> <span><?php echo $u['score_time'] ?></span> <span><?php echo $u['movements'] ?></span> </li>
                     <?php endforeach; ?>
                 </ul>
+                <!-- <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button> -->
             </div>
         </div>
         <p>Aciertos : <span id="aciertos">00</span> Errores : <span id="errores">00</span></p>

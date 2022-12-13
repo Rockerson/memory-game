@@ -11,6 +11,7 @@ function Iniciar(){
     document.querySelector("#intentos").innerText = "00";
     document.querySelector("#gana").classList.remove("visible");
     document.querySelector("#pierde").classList.remove("visible");
+    // document.querySelector("#clasificacion").classList.remove("visible");
 
     document.querySelectorAll(".tarjeta").forEach(function(elemento){
     elemento.addEventListener("click", Descubrir);
