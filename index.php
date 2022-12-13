@@ -1,7 +1,8 @@
+<?php require('php/init.php') ?>
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_error', 1);
+$ranking = mysqli_query($app_db, "SELECT * FROM records");
+$players = mysqli_fetch_all($ranking, MYSQLI_ASSOC);
 
 $nickname = '';
 $email = '';
@@ -10,45 +11,13 @@ $points = 1000;
 if(isset( $_POST['submit-score'])){
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
-    //$points = $_POST['points'];
 
-    $new_score = [
-        'id' => 0,
-        'nickname' => $nickname,
-        'email' => $email,
-        'Points' => $points,
-        'published_on' => date( 'Y-m-d H:i:s')
-    ];
+    $query = "INSERT INTO records (nickname, email, score_time, movements) VALUES ( '$nickname', '$email' , 100, 100 )";
+    $result = mysqli_query($app_db, $query);
+    if(!$result){
+        die(mysqli_error($app_db));
+    }
 }
-
-$user  = [
-    [
-        'nickname' => 'Rockerson',
-        'email' => 'rockerson@rockeme.com',
-        'points' => 512,
-    ],
-    [
-        'nickname' => 'Emeliem',
-        'email' => 'emeliem@rockeme.com',
-        'points' => 128,
-    ],
-    [
-        'nickname' => 'Tony',
-        'email' => 'tony@rockeme.com',
-        'points' => 32,
-    ],
-    [
-        'nickname' => 'Yalaj',
-        'email' => 'yalaj@rockeme.com',
-        'points' => 1080,
-    ],
-    [
-        'nickname' => 'Rockeme',
-        'email' => 'info@rockeme.com',
-        'points' => 16,
-    ]
-];
-
 ?>
 
 <!DOCTYPE html>
@@ -76,12 +45,6 @@ $user  = [
                 <span id="minutos">00</span>:<span id="segundos">00</span>
             </div>
         </div>
-        <!--<div class="nivel">
-            <h3>Nivel</h3>
-            <div>
-                <span id="nivel">00</span>
-            </div>
-        </div>-->
     </header>
     <main>
         <p>Encuentra las parejas con la menor cantidad de movimientos y en el menor tiempo posible.</p>
@@ -120,17 +83,17 @@ $user  = [
                 <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button>
             </div>
         </div>
-        <div id="clasificacion" class="popup">
+        <div id="clasificacion" class="popup visible">
             <div class="contenedor"> 
                 <h2>🏆 Ranking 🏆</h2>
                 <p>Top 10 mejores puntajes</p>
                 <ul>
                     <?php
                     $cont = 0;
-                    foreach ( $user as $u): 
+                    foreach ( $players as $u): 
                         $cont++;
                     ?>
-                    <li> <span><?php echo $cont ?></span> <span><?php echo $u['nickname'] ?></span> <span><?php echo $u['points'] ?></span> </li>
+                    <li> <span><?php echo $cont ?></span> <span><?php echo $u['nickname'] ?></span> <span><?php echo $u['id'] ?></span> </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
