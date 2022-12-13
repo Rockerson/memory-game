@@ -30,7 +30,7 @@ if(isset( $_POST['submit-score'])){
 </head>
 <body>
     <header>
-        <h1>Memory Game</h1>
+        <h1>Mc Memory</h1>
         <div class="movimientos">
             <h3>Movimientos</h3>
             <div>
@@ -50,12 +50,14 @@ if(isset( $_POST['submit-score'])){
             <!-- Aquí se llenan las tarjetas -->
         </section>
         <div id="bienvenida" class="popup">
+        <img width="50%" src="https://mc-euphoria.com/wp-content/uploads/2022/12/logoEuphoria.png" alt="Arcos Dorados">
             <div class="contenedor">
                 <h2>🖖 Hola 🖖</h2>
                 <p>Juega para alcanzar el top 10</p>
             <button id="modo-reto" class="btn" onclick="IniciarModoReto()">Jugar</button>
             <button id="modo-libre" class="btn" onclick="IniciarModoLibre()">Ranking</button>
             </div>
+            <img width="30%" src="https://appasionatero22.com/wp-content/uploads/2022/11/ArcosDorados.png" alt="Arcos Dorados">
         </div>
         <div id="pierde" class="popup">
             <div class="contenedor"> 
@@ -101,10 +103,11 @@ if(isset( $_POST['submit-score'])){
             </div>
         </div>
         <p>Aciertos : <span id="aciertos">00</span> Errores : <span id="errores">00</span></p>
+        <img width="30%" src="https://appasionatero22.com/wp-content/uploads/2022/11/ArcosDorados-blanco.png" alt="Arcos Dorados">
     </main>
     <footer>
-        <a href="https//rockerson.github.io">Rockerson.com</a>
-        <a href="https://github.com/Rockerson">GitHub</a>
+        <a href="https//mceuphoria.com">McEuphoria.com</a>
+        <a href="https://www.arcosdorados.com/">Arcos Dorados</a>
     </footer>
     <audio id="sonido-acierto" class="sonido" src="sonidos/Start.ogg" preload="auto" ></audio>
     <audio id="sonido-error" class="sonido" src="sonidos/Click.ogg" preload="auto" ></audio>

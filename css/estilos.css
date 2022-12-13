@@ -3,8 +3,8 @@
 :root{
     --color-principal : rgb(255, 188, 13);
     --color-secundario : rgb(218, 41, 28);
-    --color-base : rgb(255,255,255);  /*#1B0430;*/
-    --color-contraste :  rgb(0,0,0);  /*#A0047F;*/
+    --color-base : #1B0430;     /*rgb(255,255,255);*/
+    --color-contraste :#A0047F;  /*rgb(0,0,0); */
 }
 
 /* ESTILOS DE LA PÁGINA */
@@ -92,7 +92,10 @@ li{
     border: 0.3em solid var(--color-principal);
     
     /*box-shadow: 0px 0px 4px 2px rgba(127,127,127,0.5);*/
-    background-color: var(--color-secundario);
+    /*background-color: var(--color-secundario);*/
+    background-image: url(https://appasionatero22.com/wp-content/uploads/2022/11/Tag-McDonalds.png);
+    background-position: center;
+    background-size: cover;
 
     cursor: pointer;
     
@@ -196,6 +199,7 @@ li{
     left: 0;
     right: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--color-base);
