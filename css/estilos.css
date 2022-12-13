@@ -3,8 +3,8 @@
 :root{
     --color-principal : rgb(255, 188, 13);
     --color-secundario : rgb(218, 41, 28);
-    --color-base : #1B0430; /*rgb(255,255,255);*/
-    --color-contraste : #A0047F; /* rgb(0,0,0);*/
+    --color-base : rgb(255,255,255);  /*#1B0430;*/
+    --color-contraste :  rgb(0,0,0);  /*#A0047F;*/
 }
 
 /* ESTILOS DE LA PÁGINA */

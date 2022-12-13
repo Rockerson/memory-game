@@ -3,22 +3,17 @@
 
 $players = get_ranking();
 
-$nickname = '';
-$email = '';
-$score_time = 1000;
-$movements = 15;
-
 if(isset( $_POST['submit-score'])){
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
+    $score_time = $_POST['score_time'];
+    $movements = $_POST['movements'];
 
     insert_score($nickname, $email, $score_time, $movements);
     redirect_to('index.php?success=true');
-
-    //header('Location: http://localhost/memory-game/index.php?success=true ');
-    //die();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,8 +51,8 @@ if(isset( $_POST['submit-score'])){
         </section>
         <div id="bienvenida" class="popup">
             <div class="contenedor">
-                <h2>🖖🏻 Hola 🖖🏻</h2>
-                <p>Selecciona el modo que deseas jugar</p>
+                <h2>🖖 Hola 🖖</h2>
+                <p>Juega para alcanzar el top 10</p>
             <button id="modo-reto" class="btn" onclick="IniciarModoReto()">Jugar</button>
             <button id="modo-libre" class="btn" onclick="IniciarModoLibre()">Ranking</button>
             </div>
@@ -73,13 +68,16 @@ if(isset( $_POST['submit-score'])){
             <div class="contenedor"> 
                 <h2>🏆 Ganaste 🏆</h2>
                 <p>Has superado el juego</p>
-                <p>Tu puntaje: <strong><?php echo $movements ?></strong></p>
-                <form action="" method="post">
+                <p>Tu puntaje: <strong>123</strong></p>
+                <form name="score" action="" method="post">
                     <label for="nickname">Apodo</label>
-                    <input id="nickname" name="nickname" type="text" require/><br><br>
+                    <input id="nickname" name="nickname" type="text" required/><br><br>
 
                     <label for="email">Correo</label>
-                    <input id="email" name="email" type="email" require/><br><br>
+                    <input id="email" name="email" type="email" required/><br><br>
+
+                    <input id="score_time" name="score_time" type="hidden" value="123"/>
+                    <input id="movements" name="movements" type="hidden" value="321"/>
 
                     <input type="submit" name="submit-score" value="Enviar" class="btn">
                 </form>
@@ -91,12 +89,13 @@ if(isset( $_POST['submit-score'])){
                 <h2>🏆 Ranking 🏆</h2>
                 <p>Top 10 mejores puntajes</p>
                 <ul>
+                <li> <h3>#</h3> <h3>Jugador</h3> <h3>Seg</h3> <h3>Mov</h3> </li>
                     <?php
                     $cont = 0;
                     foreach ( $players as $u): 
                         $cont++;
                     ?>
-                    <li> <span><?php echo $cont ?></span> <span><?php echo $u['nickname'] ?></span> <span><?php echo $u['id'] ?></span> </li>
+                    <li> <span><?php echo $cont ?></span> <span><?php echo $u['nickname'] ?></span> <span><?php echo $u['score_time'] ?></span> <span><?php echo $u['movements'] ?></span> </li>
                     <?php endforeach; ?>
                 </ul>
             </div>

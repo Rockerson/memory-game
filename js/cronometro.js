@@ -1,5 +1,5 @@
 function IniciarCronometro(){
-    
+
     var segundos = 0;
     var segTexto;
 
@@ -7,6 +7,7 @@ function IniciarCronometro(){
     var minTexto;
 
     var cronometro;
+    var restante;
 
     function ActualizarCronometro(){
 
@@ -36,6 +37,9 @@ function IniciarCronometro(){
 
         document.querySelector("#segundos").innerText = segTexto;
         document.querySelector("#minutos").innerText = minTexto;
+        restante = (minutos*60) + segundos;
+        //esto debe calcularse mejor en el futuro
+        tiempo = 120 - restante;
 
     }
     

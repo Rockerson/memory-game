@@ -2,7 +2,7 @@
 
 function get_ranking(){
     global $app_db;
-    $query = "SELECT * FROM records";
+    $query = "SELECT * FROM records ORDER BY score_time, movements LIMIT 10";
     $result = mysqli_query($app_db, $query);
     if(!$result){
         die( mysqli_error($app_db));

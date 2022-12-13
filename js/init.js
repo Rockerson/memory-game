@@ -1,7 +1,8 @@
 function Iniciar(){
-    intentos = 0;
-    aciertos = 0;
-    errores = 0;
+    var intentos = 0;
+    var aciertos = 0;
+    var errores = 0;
+    //tiempo = 120;
  
     IniciarCronometro();
     IntentosMax();
@@ -36,6 +37,8 @@ function TiempoTerminado(){
 }
 
 function Finalizar(){
+    document.forms["score"]["movements"].value = intentos;
+    document.forms["score"]["score_time"].value = tiempo;
     document.querySelector("#gana").classList.add("visible");
 }
 
