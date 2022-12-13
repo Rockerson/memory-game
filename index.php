@@ -50,14 +50,14 @@ if(isset( $_POST['submit-score'])){
             <!-- Aquí se llenan las tarjetas -->
         </section>
         <div id="bienvenida" class="popup">
-        <img width="50%" src="https://mc-euphoria.com/wp-content/uploads/2022/12/logoEuphoria.png" alt="Arcos Dorados">
+            <img max-width="300px" src="https://mc-euphoria.com/wp-content/uploads/2022/12/logoEuphoria.png" alt="McEuphoria">
             <div class="contenedor">
                 <h2>🖖 Hola 🖖</h2>
                 <p>Juega para alcanzar el top 10</p>
             <button id="modo-reto" class="btn" onclick="IniciarModoReto()">Jugar</button>
             <button id="modo-libre" class="btn" onclick="IniciarModoLibre()">Ranking</button>
             </div>
-            <img width="30%" src="https://appasionatero22.com/wp-content/uploads/2022/11/ArcosDorados.png" alt="Arcos Dorados">
+            <img max-width="300px" src="https://appasionatero22.com/wp-content/uploads/2022/11/ArcosDorados.png" alt="Arcos Dorados">
         </div>
         <div id="pierde" class="popup">
             <div class="contenedor"> 
@@ -66,13 +66,12 @@ if(isset( $_POST['submit-score'])){
                 <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button>
             </div>
         </div>
-        <div id="gana" class="popup">
+        <div id="gana" class="popup visible">
             <div class="contenedor"> 
                 <h2>🏆 Ganaste 🏆</h2>
-                <p>Has superado el juego</p>
-                <p>Tu puntaje: <strong>123</strong></p>
+                <p>Has superado el juego en <strong> x </strong> segundos y con <strong> x </strong> movimientos </p>
                 <form name="score" action="" method="post">
-                    <label for="nickname">Apodo</label>
+                    <label style="margin-bottom: 10em;" for="nickname">Apodo</label>
                     <input id="nickname" name="nickname" type="text" required/><br><br>
 
                     <label for="email">Correo</label>
@@ -91,7 +90,7 @@ if(isset( $_POST['submit-score'])){
                 <h2>🏆 Ranking 🏆</h2>
                 <p>Top 10 mejores puntajes</p>
                 <ul>
-                <li> <h3>#</h3> <h3>Jugador</h3> <h3>Seg</h3> <h3>Mov</h3> </li>
+                    <li> <h3>#</h3> <h3>Jugador</h3> <h3>Seg</h3> <h3>Mov</h3> </li>
                     <?php
                     $cont = 0;
                     foreach ( $players as $u): 
@@ -103,7 +102,7 @@ if(isset( $_POST['submit-score'])){
             </div>
         </div>
         <p>Aciertos : <span id="aciertos">00</span> Errores : <span id="errores">00</span></p>
-        <img width="30%" src="https://appasionatero22.com/wp-content/uploads/2022/11/ArcosDorados-blanco.png" alt="Arcos Dorados">
+        <img max-width="300px" src="https://appasionatero22.com/wp-content/uploads/2022/11/ArcosDorados-blanco.png" alt="Arcos Dorados">
     </main>
     <footer>
         <a href="https//mceuphoria.com">McEuphoria.com</a>
