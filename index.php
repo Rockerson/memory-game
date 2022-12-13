@@ -1,3 +1,56 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_error', 1);
+
+$nickname = '';
+$email = '';
+$points = 1000;
+
+if(isset( $_POST['submit-score'])){
+    $nickname = $_POST['nickname'];
+    $email = $_POST['email'];
+    //$points = $_POST['points'];
+
+    $new_score = [
+        'id' => 0,
+        'nickname' => $nickname,
+        'email' => $email,
+        'Points' => $points,
+        'published_on' => date( 'Y-m-d H:i:s')
+    ];
+}
+
+$user  = [
+    [
+        'nickname' => 'Rockerson',
+        'email' => 'rockerson@rockeme.com',
+        'points' => 512,
+    ],
+    [
+        'nickname' => 'Emeliem',
+        'email' => 'emeliem@rockeme.com',
+        'points' => 128,
+    ],
+    [
+        'nickname' => 'Tony',
+        'email' => 'tony@rockeme.com',
+        'points' => 32,
+    ],
+    [
+        'nickname' => 'Yalaj',
+        'email' => 'yalaj@rockeme.com',
+        'points' => 1080,
+    ],
+    [
+        'nickname' => 'Rockeme',
+        'email' => 'info@rockeme.com',
+        'points' => 16,
+    ]
+];
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,13 +107,15 @@
             <div class="contenedor"> 
                 <h2>🏆 Ganaste 🏆</h2>
                 <p>Has superado el juego</p>
-                <p>Tu puntaje: <strong>Puntos</strong></p>
-                <form action="">
+                <p>Tu puntaje: <strong><?php echo $points ?></strong></p>
+                <form action="" method="post">
                     <label for="nickname">Apodo</label>
-                    <input id="nickname" type="text"/><br><br>
+                    <input id="nickname" name="nickname" type="text" require/><br><br>
 
                     <label for="email">Correo</label>
-                    <input id="email" type="email"/>
+                    <input id="email" name="email" type="email" require/><br><br>
+
+                    <input type="submit" name="submit-score" value="Enviar" class="btn">
                 </form>
                 <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button>
             </div>
@@ -70,16 +125,13 @@
                 <h2>🏆 Ranking 🏆</h2>
                 <p>Top 10 mejores puntajes</p>
                 <ul>
-                    <li>🥇<span>nikname</span> <span>Puntos</span></li>
-                    <li>🥈<span>nikname</span> <span>Puntos</span></li>
-                    <li>🥉<span>nikname</span> <span>Puntos</span></li>
-                    <li>🏅<span>nikname</span> <span>Puntos</span></li>
-                    <li>🏅<span>nikname</span> <span>Puntos</span></li>
-                    <li>🏅<span>nikname</span> <span>Puntos</span></li>
-                    <li>🏅<span>nikname</span> <span>Puntos</span></li>
-                    <li>🏅<span>nikname</span> <span>Puntos</span></li>
-                    <li>🏅<span>nikname</span> <span>Puntos</span></li>
-                    <li>🏅<span>nikname</span> <span>Puntos</span></li>
+                    <?php
+                    $cont = 0;
+                    foreach ( $user as $u): 
+                        $cont++;
+                    ?>
+                    <li> <span><?php echo $cont ?></span> <span><?php echo $u['nickname'] ?></span> <span><?php echo $u['points'] ?></span> </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
