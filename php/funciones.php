@@ -19,3 +19,8 @@ function insert_score($nickname, $email, $score_time, $movements){
         die(mysqli_error($app_db));
     }
 }
+
+function redirect_to($path){
+    header('Location:'. SITE_URL .'/'. $path);
+    die();
+}

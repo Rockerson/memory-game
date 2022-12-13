@@ -6,16 +6,19 @@ $players = get_ranking();
 $nickname = '';
 $email = '';
 $score_time = 1000;
-$movements;
+$movements = 15;
 
 if(isset( $_POST['submit-score'])){
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
 
     insert_score($nickname, $email, $score_time, $movements);
+    redirect_to('index.php?success=true');
+
+    //header('Location: http://localhost/memory-game/index.php?success=true ');
+    //die();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,6 +28,10 @@ if(isset( $_POST['submit-score'])){
     <title>🧩 Memory Game 🧩</title>
     <link rel="stylesheet" href="css/reseteo.css">
     <link rel="stylesheet" href="css/estilos.css">
+
+    <?php if(isset( $_GET['success'])): ?>
+        <script> alert("Se ha guadado con exito su puntaje");</script>
+    <?php endif; ?>
 </head>
 <body>
     <header>
@@ -51,8 +58,8 @@ if(isset( $_POST['submit-score'])){
             <div class="contenedor">
                 <h2>🖖🏻 Hola 🖖🏻</h2>
                 <p>Selecciona el modo que deseas jugar</p>
-            <button id="modo-reto" class="btn" onclick="IniciarModoReto()">Modo Reto</button>
-            <button id="modo-libre" class="btn" onclick="IniciarModoLibre()">Modo Libre</button>
+            <button id="modo-reto" class="btn" onclick="IniciarModoReto()">Jugar</button>
+            <button id="modo-libre" class="btn" onclick="IniciarModoLibre()">Ranking</button>
             </div>
         </div>
         <div id="pierde" class="popup">

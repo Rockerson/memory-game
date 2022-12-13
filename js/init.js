@@ -23,7 +23,8 @@ function IniciarModoReto(){
 
 function IniciarModoLibre(){
     document.querySelector("#bienvenida").classList.remove("visible");
-    Iniciar();
+    document.querySelector("#clasificacion").classList.add("visible");
+    //Iniciar();
 }
 
 function JuegoTerminado(){
