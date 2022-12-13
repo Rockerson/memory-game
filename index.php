@@ -1,22 +1,18 @@
 <?php require('php/init.php') ?>
 <?php
 
-$ranking = mysqli_query($app_db, "SELECT * FROM records");
-$players = mysqli_fetch_all($ranking, MYSQLI_ASSOC);
+$players = get_ranking();
 
 $nickname = '';
 $email = '';
-$points = 1000;
+$score_time = 1000;
+$movements;
 
 if(isset( $_POST['submit-score'])){
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
 
-    $query = "INSERT INTO records (nickname, email, score_time, movements) VALUES ( '$nickname', '$email' , 100, 100 )";
-    $result = mysqli_query($app_db, $query);
-    if(!$result){
-        die(mysqli_error($app_db));
-    }
+    insert_score($nickname, $email, $score_time, $movements);
 }
 ?>
 
@@ -70,7 +66,7 @@ if(isset( $_POST['submit-score'])){
             <div class="contenedor"> 
                 <h2>🏆 Ganaste 🏆</h2>
                 <p>Has superado el juego</p>
-                <p>Tu puntaje: <strong><?php echo $points ?></strong></p>
+                <p>Tu puntaje: <strong><?php echo $movements ?></strong></p>
                 <form action="" method="post">
                     <label for="nickname">Apodo</label>
                     <input id="nickname" name="nickname" type="text" require/><br><br>
@@ -83,7 +79,7 @@ if(isset( $_POST['submit-score'])){
                 <button id="reiniciar" onclick="Iniciar()" class="btn">Reiniciar</button>
             </div>
         </div>
-        <div id="clasificacion" class="popup visible">
+        <div id="clasificacion" class="popup">
             <div class="contenedor"> 
                 <h2>🏆 Ranking 🏆</h2>
                 <p>Top 10 mejores puntajes</p>

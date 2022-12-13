@@ -14,3 +14,5 @@ $app_db = mysqli_connect( $host, $user, $password, $database, $port);
 if($app_db === false){
     die('Error al conectar a la base de datos');
 }
+
+require('funciones.php');
