@@ -240,3 +240,22 @@ li{
     cursor: pointer;
     transition: all 0.5s;
 }
+
+
+/* RESPONSIVE */
+
+@media screen and (max-height: 840px) {
+
+    .logo{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 390px) {
+
+    input{
+        margin-top: 0.5em;
+    }
+    
+}

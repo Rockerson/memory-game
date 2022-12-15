@@ -41,6 +41,8 @@ function Finalizar(){
     document.forms["score"]["movements"].value = intentos;
     document.forms["score"]["score_time"].value = tiempo;
     document.querySelector("#gana").classList.add("visible");
+    document.querySelector("#tiempo-final").innerText(tiempo);
+    document.querySelector("#movimiento-final").innerText(intentos);
 }
 
 function CargaLobby(){
